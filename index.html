@@ -1,0 +1,1450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priorities for Life</title>
+  <meta name="description" content="Explore the lifetime value and estimated savings available through Priorities for Life.">
+</head>
+<body style="margin:0;">
+<!-- =========================================================
+     PRIORITIES FOR LIFE LANDING PAGE — START
+     Paste everything from this comment through the END comment
+     inside the destination website's <body> tag.
+     All CSS and JavaScript are contained in this block.
+========================================================== -->
+
+<!-- PRIORITIES FOR LIFE: SCOPED PAGE STYLES — START -->
+<style>
+  #pfl-page,
+  #pfl-page * {
+    box-sizing: border-box;
+  }
+
+  #pfl-page {
+    --pfl-red: #ef1f2f;
+    --pfl-red-dark: #c91120;
+    --pfl-black: #171415;
+    --pfl-charcoal: #2d292a;
+    --pfl-gray: #6d6869;
+    --pfl-light: #f5f4f4;
+    --pfl-line: #e4e1e1;
+    --pfl-white: #ffffff;
+    --pfl-shadow: 0 24px 70px rgba(20, 15, 16, 0.12);
+    --pfl-radius-lg: 32px;
+    --pfl-radius-md: 22px;
+    --pfl-radius-sm: 14px;
+
+    position: relative;
+    width: 100%;
+    overflow: clip;
+    color: var(--pfl-black);
+    background: var(--pfl-white);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #pfl-page img {
+    display: block;
+    max-width: 100%;
+  }
+
+  #pfl-page button,
+  #pfl-page input {
+    font: inherit;
+  }
+
+  #pfl-page button {
+    cursor: pointer;
+  }
+
+  #pfl-page a {
+    color: inherit;
+  }
+
+  #pfl-page .pfl-shell {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  #pfl-page .pfl-section {
+    position: relative;
+    padding: 110px 0;
+  }
+
+  #pfl-page .pfl-eyebrow {
+    margin: 0 0 14px;
+    color: var(--pfl-red);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-heading {
+    max-width: 860px;
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -0.055em;
+    line-height: 0.96;
+  }
+
+  #pfl-page .pfl-lead {
+    max-width: 760px;
+    margin: 24px 0 0;
+    color: var(--pfl-gray);
+    font-size: clamp(1rem, 1.7vw, 1.25rem);
+  }
+
+  #pfl-page .pfl-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(.2,.7,.2,1);
+  }
+
+  #pfl-page .pfl-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* PAGE PROGRESS BAR */
+  #pfl-page .pfl-progress {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--pfl-red);
+    box-shadow: 0 0 18px rgba(239, 31, 47, 0.55);
+    pointer-events: none;
+  }
+
+  /* HERO */
+  #pfl-page .pfl-hero {
+    position: relative;
+    min-height: 920px;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    background: #0b090a;
+  }
+
+  #pfl-page .pfl-hero-media {
+    position: absolute;
+    z-index: -3;
+    inset: -7%;
+    background:
+      linear-gradient(90deg, rgba(10,8,9,.92) 0%, rgba(10,8,9,.74) 45%, rgba(10,8,9,.43) 100%),
+      linear-gradient(180deg, rgba(10,8,9,.06) 0%, rgba(10,8,9,.75) 100%),
+      url("assets/hero-background.jpeg") center / cover no-repeat;
+    transform: translate3d(0, var(--pfl-parallax, 0px), 0) scale(1.06);
+    will-change: transform;
+  }
+
+  #pfl-page .pfl-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: auto 0 0;
+    height: 26%;
+    background: linear-gradient(to bottom, transparent, #0b090a);
+  }
+
+  #pfl-page .pfl-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(460px, 1.15fr);
+    gap: clamp(36px, 6vw, 84px);
+    align-items: center;
+    padding: 78px 0;
+  }
+
+  #pfl-page .pfl-hero-copy {
+    color: var(--pfl-white);
+  }
+
+  #pfl-page .pfl-logo-horizontal {
+    width: min(580px, 100%);
+    margin-bottom: 38px;
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,.22));
+  }
+
+  #pfl-page .pfl-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 26px;
+    color: rgba(255,255,255,.78);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-kicker::before {
+    content: "";
+    width: 42px;
+    height: 3px;
+    background: var(--pfl-red);
+  }
+
+  #pfl-page .pfl-hero-title {
+    max-width: 620px;
+    margin: 0;
+    color: var(--pfl-white);
+    font-size: clamp(3.3rem, 6.8vw, 7rem);
+    font-weight: 900;
+    letter-spacing: -0.065em;
+    line-height: .88;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-hero-title span {
+    color: var(--pfl-red);
+  }
+
+  #pfl-page .pfl-hero-copy p {
+    max-width: 580px;
+    margin: 26px 0 0;
+    color: rgba(255,255,255,.75);
+    font-size: clamp(1rem, 1.4vw, 1.18rem);
+  }
+
+  /* CALCULATOR */
+  #pfl-page .pfl-calculator {
+    position: relative;
+    padding: clamp(26px, 4vw, 46px);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: var(--pfl-radius-lg);
+    background:
+      linear-gradient(145deg, rgba(255,255,255,.96), rgba(249,247,247,.90));
+    box-shadow: 0 36px 100px rgba(0,0,0,.34);
+    overflow: hidden;
+  }
+
+  #pfl-page .pfl-calculator::before {
+    content: "";
+    position: absolute;
+    top: -140px;
+    right: -120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(239,31,47,.23), rgba(239,31,47,0) 68%);
+    pointer-events: none;
+  }
+
+  #pfl-page .pfl-calculator-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  #pfl-page .pfl-calculator-label {
+    margin: 0;
+    color: var(--pfl-red);
+    font-size: .74rem;
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-calculator h2 {
+    margin: 6px 0 0;
+    font-size: clamp(1.7rem, 3vw, 2.65rem);
+    letter-spacing: -.045em;
+    line-height: 1;
+  }
+
+  #pfl-page .pfl-brand-toggle {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5px;
+    border: 1px solid var(--pfl-line);
+    border-radius: 999px;
+    background: #ece9e9;
+  }
+
+  #pfl-page .pfl-brand-button {
+    min-width: 104px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 999px;
+    color: var(--pfl-gray);
+    background: transparent;
+    font-size: .82rem;
+    font-weight: 900;
+    transition: color .25s ease, background .25s ease, transform .25s ease;
+  }
+
+  #pfl-page .pfl-brand-button:hover {
+    transform: translateY(-1px);
+  }
+
+  #pfl-page .pfl-brand-button[aria-pressed="true"] {
+    color: var(--pfl-white);
+    background: var(--pfl-black);
+    box-shadow: 0 9px 24px rgba(23,20,21,.2);
+  }
+
+  #pfl-page .pfl-savings-panel {
+    padding: 28px;
+    border-radius: var(--pfl-radius-md);
+    color: var(--pfl-white);
+    background: linear-gradient(135deg, var(--pfl-red), var(--pfl-red-dark));
+    box-shadow: 0 20px 45px rgba(239,31,47,.23);
+  }
+
+  #pfl-page .pfl-savings-label {
+    display: block;
+    color: rgba(255,255,255,.78);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-savings-amount {
+    display: flex;
+    align-items: flex-start;
+    margin: 7px 0 2px;
+    font-size: clamp(4rem, 8vw, 7.2rem);
+    font-weight: 900;
+    letter-spacing: -.075em;
+    line-height: .92;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #pfl-page .pfl-savings-amount small {
+    margin: .1em .08em 0 0;
+    font-size: .45em;
+    letter-spacing: -.03em;
+  }
+
+  #pfl-page .pfl-savings-meta {
+    color: rgba(255,255,255,.84);
+    font-size: .92rem;
+    font-weight: 700;
+  }
+
+  #pfl-page .pfl-range-wrap {
+    margin-top: 30px;
+  }
+
+  #pfl-page .pfl-range-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: end;
+    margin-bottom: 14px;
+  }
+
+  #pfl-page .pfl-range-head label {
+    font-weight: 900;
+  }
+
+  #pfl-page .pfl-years-value {
+    color: var(--pfl-red);
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+
+  #pfl-page .pfl-years {
+    width: 100%;
+    height: 10px;
+    margin: 0;
+    border-radius: 999px;
+    appearance: none;
+    background: linear-gradient(
+      to right,
+      var(--pfl-red) 0%,
+      var(--pfl-red) var(--pfl-range, 100%),
+      #d8d4d4 var(--pfl-range, 100%),
+      #d8d4d4 100%
+    );
+    outline: none;
+  }
+
+  #pfl-page .pfl-years::-webkit-slider-thumb {
+    width: 28px;
+    height: 28px;
+    border: 5px solid var(--pfl-white);
+    border-radius: 50%;
+    appearance: none;
+    background: var(--pfl-red);
+    box-shadow: 0 5px 18px rgba(23,20,21,.28);
+  }
+
+  #pfl-page .pfl-years::-moz-range-thumb {
+    width: 19px;
+    height: 19px;
+    border: 5px solid var(--pfl-white);
+    border-radius: 50%;
+    background: var(--pfl-red);
+    box-shadow: 0 5px 18px rgba(23,20,21,.28);
+  }
+
+  #pfl-page .pfl-range-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 11px;
+    color: #888182;
+    font-size: .76rem;
+    font-weight: 800;
+  }
+
+  #pfl-page .pfl-calculator-notes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  #pfl-page .pfl-mini-stat {
+    padding: 15px;
+    border: 1px solid var(--pfl-line);
+    border-radius: var(--pfl-radius-sm);
+    background: rgba(255,255,255,.72);
+  }
+
+  #pfl-page .pfl-mini-stat strong {
+    display: block;
+    font-size: 1.05rem;
+  }
+
+  #pfl-page .pfl-mini-stat span {
+    display: block;
+    margin-top: 3px;
+    color: var(--pfl-gray);
+    font-size: .74rem;
+    font-weight: 700;
+  }
+
+  /* INTRO */
+  #pfl-page .pfl-intro {
+    background: var(--pfl-white);
+  }
+
+  #pfl-page .pfl-intro-grid {
+    display: grid;
+    grid-template-columns: .82fr 1.18fr;
+    gap: clamp(42px, 7vw, 100px);
+    align-items: start;
+  }
+
+  #pfl-page .pfl-intro-mark {
+    position: sticky;
+    top: 50px;
+    padding: 34px;
+    border-radius: var(--pfl-radius-lg);
+    background: var(--pfl-black);
+    box-shadow: var(--pfl-shadow);
+  }
+
+  #pfl-page .pfl-intro-mark img {
+    width: min(450px, 100%);
+    margin: 0 auto;
+  }
+
+  #pfl-page .pfl-intro-copy p {
+    margin: 0 0 26px;
+    color: var(--pfl-gray);
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  }
+
+  #pfl-page .pfl-intro-copy strong {
+    color: var(--pfl-black);
+  }
+
+  #pfl-page .pfl-pullquote {
+    margin-top: 42px;
+    padding: 28px 0 0 28px;
+    border-top: 1px solid var(--pfl-line);
+    border-left: 6px solid var(--pfl-red);
+    font-size: clamp(1.45rem, 3vw, 2.45rem);
+    font-weight: 900;
+    letter-spacing: -.04em;
+    line-height: 1.08;
+  }
+
+  /* BENEFITS */
+  #pfl-page .pfl-benefits {
+    background: var(--pfl-light);
+  }
+
+  #pfl-page .pfl-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 54px;
+  }
+
+  #pfl-page .pfl-benefit-card {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border: 1px solid var(--pfl-line);
+    border-radius: var(--pfl-radius-md);
+    background: var(--pfl-white);
+    box-shadow: 0 10px 28px rgba(20,15,16,.05);
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+
+  #pfl-page .pfl-benefit-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 5px;
+    background: var(--pfl-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+  }
+
+  #pfl-page .pfl-benefit-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(239,31,47,.28);
+    box-shadow: 0 24px 60px rgba(20,15,16,.12);
+  }
+
+  #pfl-page .pfl-benefit-card:hover::after {
+    transform: scaleX(1);
+  }
+
+  #pfl-page .pfl-benefit-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    margin: -4px auto 12px;
+  }
+
+  #pfl-page .pfl-benefit-card h3 {
+    margin: auto 0 8px;
+    font-size: 1.15rem;
+    letter-spacing: -.025em;
+  }
+
+  #pfl-page .pfl-benefit-card p {
+    margin: 0;
+    color: var(--pfl-gray);
+    font-size: .9rem;
+  }
+
+  /* BREAKDOWN */
+  #pfl-page .pfl-breakdown {
+    background: var(--pfl-white);
+  }
+
+  #pfl-page .pfl-table-card {
+    margin-top: 52px;
+    border: 1px solid var(--pfl-line);
+    border-radius: var(--pfl-radius-lg);
+    background: var(--pfl-white);
+    box-shadow: var(--pfl-shadow);
+    overflow: hidden;
+  }
+
+  #pfl-page .pfl-table-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 22px;
+    align-items: center;
+    padding: 30px 34px;
+    color: var(--pfl-white);
+    background: var(--pfl-black);
+  }
+
+  #pfl-page .pfl-table-top h3 {
+    margin: 0;
+    font-size: clamp(1.35rem, 3vw, 2.2rem);
+  }
+
+  #pfl-page .pfl-table-total {
+    color: var(--pfl-red);
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+  }
+
+  #pfl-page .pfl-table-wrap {
+    overflow-x: auto;
+  }
+
+  #pfl-page table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+  }
+
+  #pfl-page th,
+  #pfl-page td {
+    padding: 19px 24px;
+    text-align: left;
+  }
+
+  #pfl-page th {
+    color: #716b6c;
+    background: #efeded;
+    font-size: .73rem;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page td {
+    border-top: 1px solid var(--pfl-line);
+    font-size: .95rem;
+    font-weight: 700;
+  }
+
+  #pfl-page tbody tr:hover {
+    background: #fff9f9;
+  }
+
+  #pfl-page .pfl-priceless {
+    color: var(--pfl-red);
+    font-weight: 900;
+  }
+
+  /* PARALLAX STATEMENT */
+  #pfl-page .pfl-statement {
+    position: relative;
+    min-height: 680px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--pfl-white);
+    background: #090708;
+  }
+
+  #pfl-page .pfl-statement-media {
+    position: absolute;
+    z-index: -2;
+    inset: -8%;
+    background:
+      linear-gradient(rgba(9,7,8,.78), rgba(9,7,8,.82)),
+      url("assets/hero-background.jpeg") center / cover no-repeat;
+    transform: translate3d(0, var(--pfl-statement-parallax, 0px), 0) scale(1.08);
+    will-change: transform;
+  }
+
+  #pfl-page .pfl-statement-content {
+    width: min(1000px, calc(100% - 40px));
+    text-align: center;
+  }
+
+  #pfl-page .pfl-statement-kicker {
+    color: var(--pfl-red);
+    font-size: .82rem;
+    font-weight: 900;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-statement h2 {
+    margin: 24px auto 0;
+    font-size: clamp(3rem, 8vw, 8.4rem);
+    font-weight: 900;
+    letter-spacing: -.07em;
+    line-height: .86;
+    text-transform: uppercase;
+  }
+
+  #pfl-page .pfl-statement h2 span {
+    color: var(--pfl-red);
+  }
+
+  #pfl-page .pfl-statement p {
+    max-width: 720px;
+    margin: 28px auto 0;
+    color: rgba(255,255,255,.72);
+    font-size: 1.05rem;
+  }
+
+  /* DETAILS / ACCORDION */
+  #pfl-page .pfl-details {
+    background: var(--pfl-light);
+  }
+
+  #pfl-page .pfl-details-grid {
+    display: grid;
+    grid-template-columns: .72fr 1.28fr;
+    gap: clamp(42px, 7vw, 94px);
+    align-items: start;
+  }
+
+  #pfl-page .pfl-accordion {
+    display: grid;
+    gap: 12px;
+  }
+
+  #pfl-page .pfl-accordion-item {
+    border: 1px solid var(--pfl-line);
+    border-radius: var(--pfl-radius-sm);
+    background: var(--pfl-white);
+    overflow: hidden;
+  }
+
+  #pfl-page .pfl-accordion-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    padding: 22px;
+    border: 0;
+    color: var(--pfl-black);
+    background: transparent;
+    text-align: left;
+    font-weight: 900;
+  }
+
+  #pfl-page .pfl-accordion-button span:last-child {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 28px;
+    border-radius: 50%;
+    color: var(--pfl-white);
+    background: var(--pfl-black);
+    transition: transform .25s ease, background .25s ease;
+  }
+
+  #pfl-page .pfl-accordion-button[aria-expanded="true"] span:last-child {
+    transform: rotate(45deg);
+    background: var(--pfl-red);
+  }
+
+  #pfl-page .pfl-accordion-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+  }
+
+  #pfl-page .pfl-accordion-panel > div {
+    overflow: hidden;
+  }
+
+  #pfl-page .pfl-accordion-panel p {
+    margin: 0;
+    padding: 0 22px 22px;
+    color: var(--pfl-gray);
+  }
+
+  #pfl-page .pfl-accordion-item.is-open .pfl-accordion-panel {
+    grid-template-rows: 1fr;
+  }
+
+  /* DISCLAIMER */
+  #pfl-page .pfl-disclaimer {
+    padding: 52px 0;
+    color: rgba(255,255,255,.65);
+    background: var(--pfl-black);
+  }
+
+  #pfl-page .pfl-disclaimer img {
+    width: min(400px, 78%);
+    margin: 0 auto 30px;
+  }
+
+  #pfl-page .pfl-disclaimer p {
+    max-width: 1040px;
+    margin: 0 auto;
+    font-size: .76rem;
+    line-height: 1.75;
+    text-align: center;
+  }
+
+  @media (max-width: 1080px) {
+    #pfl-page .pfl-hero {
+      min-height: auto;
+    }
+
+    #pfl-page .pfl-hero-grid {
+      grid-template-columns: 1fr;
+      padding: 90px 0 70px;
+    }
+
+    #pfl-page .pfl-hero-copy {
+      max-width: 780px;
+    }
+
+    #pfl-page .pfl-benefit-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 800px) {
+    #pfl-page .pfl-section {
+      padding: 82px 0;
+    }
+
+    #pfl-page .pfl-shell {
+      width: min(100% - 28px, 1180px);
+    }
+
+    #pfl-page .pfl-hero-grid {
+      padding-top: 66px;
+    }
+
+    #pfl-page .pfl-calculator-top,
+    #pfl-page .pfl-table-top {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    #pfl-page .pfl-brand-toggle {
+      width: 100%;
+    }
+
+    #pfl-page .pfl-brand-button {
+      width: 100%;
+    }
+
+    #pfl-page .pfl-calculator-notes {
+      grid-template-columns: 1fr;
+    }
+
+    #pfl-page .pfl-intro-grid,
+    #pfl-page .pfl-details-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #pfl-page .pfl-intro-mark {
+      position: relative;
+      top: auto;
+    }
+
+    #pfl-page .pfl-benefit-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #pfl-page .pfl-statement {
+      min-height: 580px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    #pfl-page .pfl-hero-title {
+      font-size: clamp(3rem, 17vw, 5rem);
+    }
+
+    #pfl-page .pfl-logo-horizontal {
+      margin-bottom: 28px;
+    }
+
+    #pfl-page .pfl-calculator {
+      padding: 20px;
+      border-radius: 24px;
+    }
+
+    #pfl-page .pfl-savings-panel {
+      padding: 22px;
+    }
+
+    #pfl-page .pfl-savings-amount {
+      font-size: clamp(3.3rem, 19vw, 5.4rem);
+    }
+
+    #pfl-page .pfl-benefit-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #pfl-page .pfl-benefit-card {
+      min-height: 0;
+    }
+
+    #pfl-page .pfl-benefit-card img {
+      max-height: 250px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #pfl-page *,
+    #pfl-page *::before,
+    #pfl-page *::after {
+      scroll-behavior: auto !important;
+      transition-duration: .01ms !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+
+    #pfl-page .pfl-hero-media,
+    #pfl-page .pfl-statement-media {
+      transform: none !important;
+    }
+  }
+</style>
+<!-- PRIORITIES FOR LIFE: SCOPED PAGE STYLES — END -->
+
+<!-- PRIORITIES FOR LIFE: PAGE CONTENT — START -->
+<main id="pfl-page">
+  <div class="pfl-progress" aria-hidden="true"></div>
+
+  <!-- HERO + PRIMARY SAVINGS CALCULATOR — START -->
+  <section class="pfl-hero" aria-labelledby="pfl-hero-title">
+    <div class="pfl-hero-media" aria-hidden="true"></div>
+
+    <div class="pfl-shell pfl-hero-grid">
+      <div class="pfl-hero-copy pfl-reveal">
+        <img
+          class="pfl-logo-horizontal"
+          src="assets/priorities-for-life-horizontal.png"
+          alt="Priorities for Life"
+        >
+        <div class="pfl-kicker">Included with every new and used vehicle purchased at Priority</div>
+        <h1 class="pfl-hero-title" id="pfl-hero-title">
+          You can have it <span>all.</span>
+        </h1>
+        <p>
+          Award-winning lifetime value designed to save you money, protect your vehicle,
+          and provide peace of mind throughout ownership.
+        </p>
+      </div>
+
+      <div class="pfl-calculator pfl-reveal" aria-labelledby="pfl-calculator-title">
+        <div class="pfl-calculator-top">
+          <div>
+            <p class="pfl-calculator-label">Interactive ownership calculator</p>
+            <h2 id="pfl-calculator-title">See what your ownership could be worth.</h2>
+          </div>
+
+          <div class="pfl-brand-toggle" role="group" aria-label="Select vehicle brand">
+            <button class="pfl-brand-button" type="button" data-brand="lexus" aria-pressed="true">Lexus</button>
+            <button class="pfl-brand-button" type="button" data-brand="mitsubishi" aria-pressed="false">Mitsubishi</button>
+          </div>
+        </div>
+
+        <div class="pfl-savings-panel" aria-live="polite">
+          <span class="pfl-savings-label">Estimated total savings</span>
+          <div class="pfl-savings-amount">
+            <small>$</small><span data-savings-number>13,140</span>
+          </div>
+          <div class="pfl-savings-meta">
+            Based on <span data-years-copy>10 years</span> and approximately
+            <span data-mileage>150,000</span> miles.
+          </div>
+        </div>
+
+        <div class="pfl-range-wrap">
+          <div class="pfl-range-head">
+            <label for="pfl-years">How long do you plan to keep your vehicle?</label>
+            <output class="pfl-years-value" for="pfl-years"><span data-years>10</span> years</output>
+          </div>
+
+          <input
+            class="pfl-years"
+            id="pfl-years"
+            type="range"
+            min="1"
+            max="10"
+            step="1"
+            value="10"
+            aria-label="Years of vehicle ownership"
+          >
+
+          <div class="pfl-range-scale" aria-hidden="true">
+            <span>1 year</span>
+            <span>5 years</span>
+            <span>10 years</span>
+          </div>
+        </div>
+
+        <div class="pfl-calculator-notes">
+          <div class="pfl-mini-stat">
+            <strong data-annual-value>$1,314</strong>
+            <span>Average estimated annual value</span>
+          </div>
+          <div class="pfl-mini-stat">
+            <strong>5</strong>
+            <span>Lifetime program benefits</span>
+          </div>
+          <div class="pfl-mini-stat">
+            <strong data-brand-copy>Lexus</strong>
+            <span>Current calculator selection</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- HERO + PRIMARY SAVINGS CALCULATOR — END -->
+
+  <!-- PROGRAM OVERVIEW — START -->
+  <section class="pfl-section pfl-intro">
+    <div class="pfl-shell pfl-intro-grid">
+      <div class="pfl-intro-mark pfl-reveal">
+        <img
+          src="assets/priorities-for-life-stacked.png"
+          alt="Priorities for Life"
+          loading="lazy"
+        >
+      </div>
+
+      <div class="pfl-intro-copy">
+        <p class="pfl-eyebrow pfl-reveal">Priorities for Life</p>
+        <h2 class="pfl-heading pfl-reveal">Lifetime value that stays with you.</h2>
+        <p class="pfl-reveal">
+          Priority Automotive's Priorities for Life is an award-winning lifetime value
+          program designed to save customers money and provide peace of mind.
+          The program is included with every new and used vehicle purchased at Priority.
+        </p>
+        <p class="pfl-reveal">
+          From routine maintenance to long-term protection, each benefit is designed
+          to help reduce ownership costs and keep your vehicle supported by the team
+          that knows it best.
+        </p>
+        <div class="pfl-pullquote pfl-reveal">
+          Our No. 1 Priority is you—and this program is built to prove it.
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROGRAM OVERVIEW — END -->
+
+  <!-- INCLUDED BENEFITS — START -->
+  <section class="pfl-section pfl-benefits" aria-labelledby="pfl-benefits-title">
+    <div class="pfl-shell">
+      <p class="pfl-eyebrow pfl-reveal">What's included</p>
+      <h2 class="pfl-heading pfl-reveal" id="pfl-benefits-title">
+        Five benefits. One lifetime of added value.
+      </h2>
+      <p class="pfl-lead pfl-reveal">
+        Every benefit is subject to program exclusions and limitations. Review the
+        program details below and speak with your dealership for complete coverage information.
+      </p>
+
+      <div class="pfl-benefit-grid">
+        <article class="pfl-benefit-card pfl-reveal">
+          <img src="assets/benefit-oil-changes.png" alt="" loading="lazy">
+          <h3>Oil &amp; Filter Changes for Life*</h3>
+          <p>Keep your engine running smoothly with complimentary oil and filter changes.</p>
+        </article>
+
+        <article class="pfl-benefit-card pfl-reveal">
+          <img src="assets/benefit-state-inspections.png" alt="" loading="lazy">
+          <h3>State Inspections for Life*</h3>
+          <p>For Virginia residents, annual state inspections are covered.</p>
+        </article>
+
+        <article class="pfl-benefit-card pfl-reveal">
+          <img src="assets/benefit-engine-guarantee.png" alt="" loading="lazy">
+          <h3>Engine Guaranteed for Life*</h3>
+          <p>Select new vehicles include a lifetime engine guarantee.</p>
+        </article>
+
+        <article class="pfl-benefit-card pfl-reveal">
+          <img src="assets/benefit-parts-service.png" alt="" loading="lazy">
+          <h3>Parts &amp; Service for Life*</h3>
+          <p>Installed parts and qualifying service include a lifetime guarantee.</p>
+        </article>
+
+        <article class="pfl-benefit-card pfl-reveal">
+          <img src="assets/benefit-towing.png" alt="" loading="lazy">
+          <h3>Towing for Life*</h3>
+          <p>Qualifying towing service is included within applicable distance limitations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- INCLUDED BENEFITS — END -->
+
+  <!-- VALUE BREAKDOWN — START -->
+  <section class="pfl-section pfl-breakdown" aria-labelledby="pfl-breakdown-title">
+    <div class="pfl-shell">
+      <p class="pfl-eyebrow pfl-reveal">Estimated 10-year value</p>
+      <h2 class="pfl-heading pfl-reveal" id="pfl-breakdown-title">
+        See where the savings come from.
+      </h2>
+      <p class="pfl-lead pfl-reveal">
+        The calculator uses the ten-year estimates below and adjusts the total
+        proportionally based on the selected ownership period.
+      </p>
+
+      <div class="pfl-table-card pfl-reveal">
+        <div class="pfl-table-top">
+          <h3><span data-table-brand>Lexus</span> value breakdown</h3>
+          <div class="pfl-table-total">$<span data-table-total>13,140</span></div>
+        </div>
+
+        <div class="pfl-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Service offer</th>
+                <th>Total services</th>
+                <th>Cost per service</th>
+                <th>Total estimated value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oil &amp; Filter Changes</td>
+                <td>20</td>
+                <td data-oil-cost>$120</td>
+                <td data-oil-total>$2,400</td>
+              </tr>
+              <tr>
+                <td>State Inspections</td>
+                <td>10</td>
+                <td>$20</td>
+                <td>$200</td>
+              </tr>
+              <tr>
+                <td>Shuttle Service</td>
+                <td>8</td>
+                <td>$30</td>
+                <td>$240</td>
+              </tr>
+              <tr>
+                <td>Towing</td>
+                <td>2</td>
+                <td>$150</td>
+                <td>$300</td>
+              </tr>
+              <tr>
+                <td>Engine Lifetime Guarantee</td>
+                <td>Yes</td>
+                <td data-engine-cost>$10,000</td>
+                <td data-engine-total>$10,000</td>
+              </tr>
+              <tr>
+                <td>Parts &amp; Service Lifetime Guarantee</td>
+                <td>Yes</td>
+                <td>Peace of Mind</td>
+                <td class="pfl-priceless">Priceless</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- VALUE BREAKDOWN — END -->
+
+  <!-- PARALLAX BRAND STATEMENT — START -->
+  <section class="pfl-statement">
+    <div class="pfl-statement-media" aria-hidden="true"></div>
+    <div class="pfl-statement-content pfl-reveal">
+      <div class="pfl-statement-kicker">More than a program</div>
+      <h2>Drive farther. Save more. Worry <span>less.</span></h2>
+      <p>
+        Priorities for Life adds meaningful long-term value while helping you
+        maintain your vehicle with a dealership team committed to your ownership experience.
+      </p>
+    </div>
+  </section>
+  <!-- PARALLAX BRAND STATEMENT — END -->
+
+  <!-- PROGRAM DETAILS / LIMITATIONS — START -->
+  <section class="pfl-section pfl-details" aria-labelledby="pfl-details-title">
+    <div class="pfl-shell pfl-details-grid">
+      <div>
+        <p class="pfl-eyebrow pfl-reveal">Important details</p>
+        <h2 class="pfl-heading pfl-reveal" id="pfl-details-title">
+          Coverage made clear.
+        </h2>
+        <p class="pfl-lead pfl-reveal">
+          Some exclusions and limitations apply. Expand each item for a plain-language overview.
+        </p>
+      </div>
+
+      <div class="pfl-accordion pfl-reveal">
+        <div class="pfl-accordion-item">
+          <button class="pfl-accordion-button" type="button" aria-expanded="false">
+            <span>Engine Guarantee eligibility</span><span aria-hidden="true">+</span>
+          </button>
+          <div class="pfl-accordion-panel">
+            <div><p>The Engine Guarantee applies only to select new vehicles and other qualifying vehicles identified by the dealership.</p></div>
+          </div>
+        </div>
+
+        <div class="pfl-accordion-item">
+          <button class="pfl-accordion-button" type="button" aria-expanded="false">
+            <span>Oil change exclusions</span><span aria-hidden="true">+</span>
+          </button>
+          <div class="pfl-accordion-panel">
+            <div><p>Oil &amp; Filter Changes for Life exclude diesel engines and may exclude vehicles requiring larger oil capacities.</p></div>
+          </div>
+        </div>
+
+        <div class="pfl-accordion-item">
+          <button class="pfl-accordion-button" type="button" aria-expanded="false">
+            <span>State inspection availability</span><span aria-hidden="true">+</span>
+          </button>
+          <div class="pfl-accordion-panel">
+            <div><p>State Inspections for Life are available only in Virginia.</p></div>
+          </div>
+        </div>
+
+        <div class="pfl-accordion-item">
+          <button class="pfl-accordion-button" type="button" aria-expanded="false">
+            <span>Towing limitations</span><span aria-hidden="true">+</span>
+          </button>
+          <div class="pfl-accordion-panel">
+            <div><p>Towing for Life is limited by distance from the dealership and other program terms.</p></div>
+          </div>
+        </div>
+
+        <div class="pfl-accordion-item">
+          <button class="pfl-accordion-button" type="button" aria-expanded="false">
+            <span>Ownership and service requirements</span><span aria-hidden="true">+</span>
+          </button>
+          <div class="pfl-accordion-panel">
+            <div><p>Benefits are non-transferable, apply only to the original owner, and all covered work must be performed at the dealership where the vehicle was purchased.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROGRAM DETAILS / LIMITATIONS — END -->
+
+  <!-- LEGAL DISCLAIMER — START -->
+  <footer class="pfl-disclaimer">
+    <div class="pfl-shell">
+      <img
+        src="assets/priorities-for-life-horizontal.png"
+        alt="Priorities for Life"
+        loading="lazy"
+      >
+      <p>
+        *Priorities for Life estimated savings value based on 10 years and 150,000 miles.
+        The Engine Guarantee applies only to select new vehicles; Towing for Life is limited
+        by distance from the dealership; Oil &amp; Filter Changes for Life exclude vehicles
+        with diesel engines and may exclude vehicles requiring larger oil capacities;
+        State Inspections are available only in Virginia; and the Installed Parts &amp;
+        Service Guarantee for Life includes additional limitations. Benefits are
+        non-transferable, apply only to the original owner, and all work must be done at
+        the dealership where the vehicle was purchased. Some exclusions may apply.
+        Offers are subject to change without notice. See dealer for complete details.
+      </p>
+    </div>
+  </footer>
+  <!-- LEGAL DISCLAIMER — END -->
+</main>
+<!-- PRIORITIES FOR LIFE: PAGE CONTENT — END -->
+
+<!-- PRIORITIES FOR LIFE: PAGE SCRIPTS — START -->
+<script>
+(function () {
+  "use strict";
+
+  const page = document.getElementById("pfl-page");
+  if (!page) return;
+
+  /* ---------------------------------------------------------
+     EASY-EDIT CALCULATOR DATA
+     Change these values here if program pricing changes.
+  --------------------------------------------------------- */
+  const programData = {
+    lexus: {
+      name: "Lexus",
+      tenYearTotal: 13140,
+      oilCost: 120,
+      oilTotal: 2400,
+      engineCost: 10000,
+      engineTotal: 10000
+    },
+    mitsubishi: {
+      name: "Mitsubishi",
+      tenYearTotal: 8140,
+      oilCost: 70,
+      oilTotal: 1400,
+      engineCost: 6000,
+      engineTotal: 6000
+    }
+  };
+
+  const state = {
+    brand: "lexus",
+    years: 10
+  };
+
+  const money = new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: 0
+  });
+
+  const yearsInput = page.querySelector("#pfl-years");
+  const brandButtons = page.querySelectorAll(".pfl-brand-button");
+
+  const elements = {
+    savings: page.querySelector("[data-savings-number]"),
+    years: page.querySelector("[data-years]"),
+    yearsCopy: page.querySelector("[data-years-copy]"),
+    mileage: page.querySelector("[data-mileage]"),
+    annualValue: page.querySelector("[data-annual-value]"),
+    brandCopy: page.querySelector("[data-brand-copy]"),
+    tableBrand: page.querySelector("[data-table-brand]"),
+    tableTotal: page.querySelector("[data-table-total]"),
+    oilCost: page.querySelector("[data-oil-cost]"),
+    oilTotal: page.querySelector("[data-oil-total]"),
+    engineCost: page.querySelector("[data-engine-cost]"),
+    engineTotal: page.querySelector("[data-engine-total]")
+  };
+
+  function animateNumber(element, nextValue, prefix = "") {
+    if (!element) return;
+
+    const previousValue = Number(element.dataset.value || 0);
+    const startTime = performance.now();
+    const duration = 480;
+
+    function frame(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(previousValue + ((nextValue - previousValue) * eased));
+      element.textContent = prefix + money.format(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+      } else {
+        element.dataset.value = String(nextValue);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  function updateRangeFill() {
+    const percent = ((state.years - 1) / 9) * 100;
+    yearsInput.style.setProperty("--pfl-range", percent + "%");
+  }
+
+  function updateCalculator() {
+    const data = programData[state.brand];
+    const proportionalSavings = Math.round(data.tenYearTotal * (state.years / 10));
+    const mileage = state.years * 15000;
+    const annual = Math.round(data.tenYearTotal / 10);
+
+    animateNumber(elements.savings, proportionalSavings);
+    elements.years.textContent = state.years;
+    elements.yearsCopy.textContent = state.years + (state.years === 1 ? " year" : " years");
+    elements.mileage.textContent = money.format(mileage);
+    elements.annualValue.textContent = "$" + money.format(annual);
+    elements.brandCopy.textContent = data.name;
+
+    elements.tableBrand.textContent = data.name;
+    elements.tableTotal.textContent = money.format(data.tenYearTotal);
+    elements.oilCost.textContent = "$" + money.format(data.oilCost);
+    elements.oilTotal.textContent = "$" + money.format(data.oilTotal);
+    elements.engineCost.textContent = "$" + money.format(data.engineCost);
+    elements.engineTotal.textContent = "$" + money.format(data.engineTotal);
+
+    updateRangeFill();
+  }
+
+  brandButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      state.brand = button.dataset.brand;
+
+      brandButtons.forEach(function (item) {
+        item.setAttribute("aria-pressed", String(item === button));
+      });
+
+      updateCalculator();
+    });
+  });
+
+  yearsInput.addEventListener("input", function () {
+    state.years = Number(yearsInput.value);
+    updateCalculator();
+  });
+
+  /* ACCORDIONS */
+  page.querySelectorAll(".pfl-accordion-button").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const item = button.closest(".pfl-accordion-item");
+      const isOpen = item.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+    });
+  });
+
+  /* SCROLL REVEALS */
+  const revealItems = page.querySelectorAll(".pfl-reveal");
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    revealItems.forEach(function (item) {
+      observer.observe(item);
+    });
+  } else {
+    revealItems.forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+  }
+
+  /* PROGRESS + LIGHTWEIGHT PARALLAX */
+  const progress = page.querySelector(".pfl-progress");
+  const heroMedia = page.querySelector(".pfl-hero-media");
+  const statementMedia = page.querySelector(".pfl-statement-media");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let ticking = false;
+
+  function updateScrollEffects() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progress.style.width = percentage + "%";
+
+    if (!reduceMotion) {
+      if (heroMedia) {
+        heroMedia.style.setProperty("--pfl-parallax", Math.min(scrollTop * 0.13, 90) + "px");
+      }
+
+      if (statementMedia) {
+        const rect = statementMedia.parentElement.getBoundingClientRect();
+        const offset = (window.innerHeight - rect.top) * 0.07;
+        statementMedia.style.setProperty("--pfl-statement-parallax", Math.max(-60, Math.min(70, offset)) + "px");
+      }
+    }
+
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollEffects);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener("resize", updateScrollEffects);
+
+  /* INITIALIZE */
+  elements.savings.dataset.value = "13140";
+  updateCalculator();
+  updateScrollEffects();
+
+  requestAnimationFrame(function () {
+    page.querySelectorAll(".pfl-hero .pfl-reveal").forEach(function (item, index) {
+      window.setTimeout(function () {
+        item.classList.add("is-visible");
+      }, index * 120);
+    });
+  });
+})();
+</script>
+<!-- PRIORITIES FOR LIFE: PAGE SCRIPTS — END -->
+
+<!-- =========================================================
+     PRIORITIES FOR LIFE LANDING PAGE — END
+========================================================== -->
+</body>
+</html>
