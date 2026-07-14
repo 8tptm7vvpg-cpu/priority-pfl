@@ -151,7 +151,7 @@
     grid-template-columns: minmax(0, .85fr) minmax(460px, 1.15fr);
     gap: clamp(36px, 6vw, 84px);
     align-items: center;
-    padding: 78px 0;
+    padding: 34px 0 72px;
   }
 
   #pfl-page .pfl-hero-copy {
@@ -764,7 +764,7 @@
 
     #pfl-page .pfl-hero-grid {
       grid-template-columns: 1fr;
-      padding: 90px 0 70px;
+      padding: 38px 0 70px;
     }
 
     #pfl-page .pfl-hero-copy {
@@ -786,7 +786,7 @@
     }
 
     #pfl-page .pfl-hero-grid {
-      padding-top: 66px;
+      padding-top: 24px;
     }
 
     #pfl-page .pfl-calculator-top,
@@ -861,6 +861,248 @@
     }
   }
 
+
+  /* ENHANCED MOTION, VEHICLE ART + PARALLAX */
+  #pfl-page .pfl-logo-horizontal {
+    transform-origin: left center;
+    animation: pflLogoArrival 900ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  #pfl-page .pfl-hero-copy .pfl-kicker {
+    animation: pflFlyInLeft 820ms 120ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  #pfl-page .pfl-hero-title {
+    animation: pflFlyInLeft 900ms 220ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  #pfl-page .pfl-hero-copy > p {
+    animation: pflFlyInLeft 900ms 320ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  #pfl-page .pfl-calculator {
+    animation: pflCalculatorArrival 1050ms 180ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  #pfl-page .pfl-calculator.is-calculator-active {
+    animation: pflCalculatorPulse 760ms cubic-bezier(.2,.8,.2,1);
+  }
+
+  #pfl-page .pfl-brand-toggle {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+  }
+
+  #pfl-page .pfl-brand-toggle::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -7px;
+    border: 2px solid rgba(239,31,47,.0);
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  #pfl-page .pfl-brand-toggle.is-attention::after {
+    animation: pflToggleHalo 1.5s ease-in-out 2;
+  }
+
+  #pfl-page .pfl-brand-button[aria-pressed="true"] {
+    position: relative;
+    animation: pflSelectedButtonPulse 2.2s ease-in-out infinite;
+  }
+
+  #pfl-page .pfl-brand-button[aria-pressed="true"]::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 2px solid rgba(239,31,47,.5);
+    border-radius: inherit;
+    animation: pflButtonRing 2.2s ease-out infinite;
+    pointer-events: none;
+  }
+
+  #pfl-page .pfl-savings-amount.is-counting {
+    animation: pflSavingsPop 620ms cubic-bezier(.2,.9,.2,1);
+  }
+
+  #pfl-page .pfl-years::-webkit-slider-thumb {
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+
+  #pfl-page .pfl-years.is-demoing::-webkit-slider-thumb {
+    transform: scale(1.22);
+    box-shadow: 0 0 0 10px rgba(239,31,47,.16), 0 8px 26px rgba(23,20,21,.35);
+  }
+
+  #pfl-page .pfl-years.is-demoing::-moz-range-thumb {
+    transform: scale(1.22);
+    box-shadow: 0 0 0 10px rgba(239,31,47,.16), 0 8px 26px rgba(23,20,21,.35);
+  }
+
+  #pfl-page .pfl-reveal.pfl-fly-left {
+    transform: translateX(-70px) rotate(-1deg);
+  }
+
+  #pfl-page .pfl-reveal.pfl-fly-right {
+    transform: translateX(70px) rotate(1deg);
+  }
+
+  #pfl-page .pfl-reveal.pfl-bounce-up {
+    transform: translateY(80px) scale(.92);
+  }
+
+  #pfl-page .pfl-reveal.pfl-fly-left.is-visible,
+  #pfl-page .pfl-reveal.pfl-fly-right.is-visible,
+  #pfl-page .pfl-reveal.pfl-bounce-up.is-visible {
+    transform: translate(0,0) rotate(0) scale(1);
+  }
+
+  #pfl-page .pfl-reveal.pfl-bounce-up.is-visible {
+    transition-timing-function: cubic-bezier(.17,.89,.32,1.35);
+  }
+
+  #pfl-page .pfl-benefit-card:nth-child(2) { transition-delay: 70ms; }
+  #pfl-page .pfl-benefit-card:nth-child(3) { transition-delay: 140ms; }
+  #pfl-page .pfl-benefit-card:nth-child(4) { transition-delay: 210ms; }
+  #pfl-page .pfl-benefit-card:nth-child(5) { transition-delay: 280ms; }
+
+  #pfl-page .pfl-vehicle-stage {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  #pfl-page .pfl-vehicle {
+    position: absolute;
+    display: block;
+    object-fit: contain;
+    opacity: 0;
+    filter: drop-shadow(0 24px 32px rgba(0,0,0,.38));
+    will-change: transform, opacity;
+  }
+
+  #pfl-page .pfl-vehicle.is-active {
+    opacity: 1;
+  }
+
+  #pfl-page .pfl-vehicle--lexus {
+    right: -2%;
+    bottom: -4%;
+    width: min(48vw, 720px);
+    transform: translate3d(var(--pfl-vehicle-x, 0px), var(--pfl-vehicle-y, 0px), 0) scale(1.02);
+  }
+
+  #pfl-page .pfl-vehicle--mitsubishi {
+    right: -1%;
+    bottom: -4%;
+    width: min(48vw, 700px);
+    transform: translate3d(var(--pfl-vehicle-x, 0px), var(--pfl-vehicle-y, 0px), 0) scale(1.02);
+  }
+
+  #pfl-page .pfl-intro-vehicle {
+    position: absolute;
+    right: -5%;
+    bottom: -10%;
+    width: min(42vw, 640px);
+    opacity: .12;
+    filter: grayscale(1);
+    transform: translate3d(0, var(--pfl-intro-vehicle-y, 0px), 0) rotate(-2deg);
+    pointer-events: none;
+  }
+
+  #pfl-page .pfl-statement-vehicle {
+    position: absolute;
+    z-index: -1;
+    left: -4%;
+    bottom: -8%;
+    width: min(46vw, 720px);
+    opacity: .42;
+    filter: drop-shadow(0 24px 45px rgba(0,0,0,.5));
+    transform: translate3d(var(--pfl-statement-vehicle-x, 0px), var(--pfl-statement-vehicle-y, 0px), 0);
+    pointer-events: none;
+  }
+
+  #pfl-page .pfl-table-total.is-counting {
+    animation: pflSavingsPop 620ms cubic-bezier(.2,.9,.2,1);
+  }
+
+  @keyframes pflLogoArrival {
+    from { opacity: 0; transform: translateY(-30px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes pflFlyInLeft {
+    from { opacity: 0; transform: translateX(-55px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes pflCalculatorArrival {
+    0% { opacity: 0; transform: translateX(80px) scale(.93); }
+    68% { opacity: 1; transform: translateX(-8px) scale(1.015); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  @keyframes pflCalculatorPulse {
+    0%,100% { transform: scale(1); }
+    45% { transform: scale(1.018); }
+  }
+
+  @keyframes pflToggleHalo {
+    0%,100% { border-color: rgba(239,31,47,0); transform: scale(.95); }
+    45% { border-color: rgba(239,31,47,.65); transform: scale(1.06); }
+  }
+
+  @keyframes pflSelectedButtonPulse {
+    0%,100% { box-shadow: 0 9px 24px rgba(23,20,21,.2); }
+    50% { box-shadow: 0 9px 30px rgba(239,31,47,.38); }
+  }
+
+  @keyframes pflButtonRing {
+    0% { opacity: .75; transform: scale(.94); }
+    70%,100% { opacity: 0; transform: scale(1.16); }
+  }
+
+  @keyframes pflSavingsPop {
+    0% { transform: scale(.92); }
+    55% { transform: scale(1.045); }
+    100% { transform: scale(1); }
+  }
+
+  @media (max-width: 1080px) {
+    #pfl-page .pfl-vehicle--lexus,
+    #pfl-page .pfl-vehicle--mitsubishi {
+      width: min(66vw, 680px);
+      right: -18%;
+      bottom: -1%;
+      opacity: .34;
+    }
+  }
+
+  @media (max-width: 800px) {
+    #pfl-page .pfl-vehicle--lexus,
+    #pfl-page .pfl-vehicle--mitsubishi {
+      width: 82vw;
+      right: -35%;
+      bottom: 12%;
+      opacity: .22;
+    }
+
+    #pfl-page .pfl-intro-vehicle {
+      width: 78vw;
+      opacity: .07;
+    }
+
+    #pfl-page .pfl-statement-vehicle {
+      width: 76vw;
+      opacity: .24;
+      left: -20%;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     #pfl-page *,
     #pfl-page *::before,
@@ -887,11 +1129,16 @@
   <section class="pfl-hero" aria-labelledby="pfl-hero-title">
     <div class="pfl-hero-media" aria-hidden="true"></div>
 
+    <div class="pfl-vehicle-stage" aria-hidden="true">
+      <img class="pfl-vehicle pfl-vehicle--lexus is-active" data-vehicle="lexus" src="assets/vehicle-lexus-lx.png" alt="">
+      <img class="pfl-vehicle pfl-vehicle--mitsubishi" data-vehicle="mitsubishi" src="assets/vehicle-mitsubishi-outlander.png" alt="">
+    </div>
+
     <div class="pfl-shell pfl-hero-grid">
       <div class="pfl-hero-copy pfl-reveal">
         <img
           class="pfl-logo-horizontal"
-          src="assets/priorities-for-life-horizontal.png"
+          src="assets/priorities-for-life-horizontal-white.png"
           alt="Priorities for Life"
         >
         <div class="pfl-kicker">Included with every new and used vehicle purchased at Priority</div>
@@ -973,10 +1220,11 @@
 
   <!-- PROGRAM OVERVIEW — START -->
   <section class="pfl-section pfl-intro">
+    <img class="pfl-intro-vehicle" src="assets/vehicle-lexus-rx.jpeg" alt="" aria-hidden="true" loading="lazy">
     <div class="pfl-shell pfl-intro-grid">
-      <div class="pfl-intro-mark pfl-reveal">
+      <div class="pfl-intro-mark pfl-reveal pfl-fly-left">
         <img
-          src="assets/priorities-for-life-stacked.png"
+          src="assets/priorities-for-life-stacked-white.png"
           alt="Priorities for Life"
           loading="lazy"
         >
@@ -1016,31 +1264,31 @@
       </p>
 
       <div class="pfl-benefit-grid">
-        <article class="pfl-benefit-card pfl-reveal">
+        <article class="pfl-benefit-card pfl-reveal pfl-bounce-up">
           <img src="assets/benefit-oil-changes.png" alt="" loading="lazy">
           <h3>Oil &amp; Filter Changes for Life*</h3>
           <p>Keep your engine running smoothly with complimentary oil and filter changes.</p>
         </article>
 
-        <article class="pfl-benefit-card pfl-reveal">
+        <article class="pfl-benefit-card pfl-reveal pfl-bounce-up">
           <img src="assets/benefit-state-inspections.png" alt="" loading="lazy">
           <h3>State Inspections for Life*</h3>
           <p>For Virginia residents, annual state inspections are covered.</p>
         </article>
 
-        <article class="pfl-benefit-card pfl-reveal">
+        <article class="pfl-benefit-card pfl-reveal pfl-bounce-up">
           <img src="assets/benefit-engine-guarantee.png" alt="" loading="lazy">
           <h3>Engine Guaranteed for Life*</h3>
           <p>Select new vehicles include a lifetime engine guarantee.</p>
         </article>
 
-        <article class="pfl-benefit-card pfl-reveal">
+        <article class="pfl-benefit-card pfl-reveal pfl-bounce-up">
           <img src="assets/benefit-parts-service.png" alt="" loading="lazy">
           <h3>Parts &amp; Service for Life*</h3>
           <p>Installed parts and qualifying service include a lifetime guarantee.</p>
         </article>
 
-        <article class="pfl-benefit-card pfl-reveal">
+        <article class="pfl-benefit-card pfl-reveal pfl-bounce-up">
           <img src="assets/benefit-towing.png" alt="" loading="lazy">
           <h3>Towing for Life*</h3>
           <p>Qualifying towing service is included within applicable distance limitations.</p>
@@ -1062,7 +1310,7 @@
         proportionally based on the selected ownership period.
       </p>
 
-      <div class="pfl-table-card pfl-reveal">
+      <div class="pfl-table-card pfl-reveal pfl-bounce-up">
         <div class="pfl-table-top">
           <h3><span data-table-brand>Lexus</span> value breakdown</h3>
           <div class="pfl-table-total">$<span data-table-total>13,140</span></div>
@@ -1126,7 +1374,8 @@
   <!-- PARALLAX BRAND STATEMENT — START -->
   <section class="pfl-statement">
     <div class="pfl-statement-media" aria-hidden="true"></div>
-    <div class="pfl-statement-content pfl-reveal">
+    <img class="pfl-statement-vehicle" src="assets/vehicle-mitsubishi-eclipse-cross.png" alt="" aria-hidden="true" loading="lazy">
+    <div class="pfl-statement-content pfl-reveal pfl-bounce-up">
       <div class="pfl-statement-kicker">More than a program</div>
       <h2>Drive farther. Save more. Worry <span>less.</span></h2>
       <p>
@@ -1150,7 +1399,7 @@
         </p>
       </div>
 
-      <div class="pfl-accordion pfl-reveal">
+      <div class="pfl-accordion pfl-reveal pfl-fly-right">
         <div class="pfl-accordion-item">
           <button class="pfl-accordion-button" type="button" aria-expanded="false">
             <span>Engine Guarantee eligibility</span><span aria-hidden="true">+</span>
@@ -1204,7 +1453,7 @@
   <footer class="pfl-disclaimer">
     <div class="pfl-shell">
       <img
-        src="assets/priorities-for-life-horizontal.png"
+        src="assets/priorities-for-life-horizontal-white.png"
         alt="Priorities for Life"
         loading="lazy"
       >
@@ -1280,13 +1529,20 @@
     oilCost: page.querySelector("[data-oil-cost]"),
     oilTotal: page.querySelector("[data-oil-total]"),
     engineCost: page.querySelector("[data-engine-cost]"),
-    engineTotal: page.querySelector("[data-engine-total]")
+    engineTotal: page.querySelector("[data-engine-total]"),
+    savingsWrap: page.querySelector(".pfl-savings-amount"),
+    tableTotalWrap: page.querySelector(".pfl-table-total"),
+    calculator: page.querySelector(".pfl-calculator"),
+    brandToggle: page.querySelector(".pfl-brand-toggle"),
+    heroVehicles: page.querySelectorAll("[data-vehicle]"),
+    introVehicle: page.querySelector(".pfl-intro-vehicle"),
+    statementVehicle: page.querySelector(".pfl-statement-vehicle")
   };
 
-  function animateNumber(element, nextValue, prefix = "") {
+  function animateNumber(element, nextValue, prefix = "", forceFromZero = false) {
     if (!element) return;
 
-    const previousValue = Number(element.dataset.value || 0);
+    const previousValue = forceFromZero ? 0 : Number(element.dataset.value || 0);
     const startTime = performance.now();
     const duration = 480;
 
@@ -1301,6 +1557,14 @@
       } else {
         element.dataset.value = String(nextValue);
       }
+    }
+
+    const wrap = element.closest(".pfl-savings-amount, .pfl-table-total");
+    if (wrap) {
+      wrap.classList.remove("is-counting");
+      void wrap.offsetWidth;
+      wrap.classList.add("is-counting");
+      window.setTimeout(function () { wrap.classList.remove("is-counting"); }, 680);
     }
 
     requestAnimationFrame(frame);
@@ -1331,6 +1595,19 @@
     elements.engineCost.textContent = "$" + money.format(data.engineCost);
     elements.engineTotal.textContent = "$" + money.format(data.engineTotal);
 
+    elements.heroVehicles.forEach(function (vehicle) {
+      vehicle.classList.toggle("is-active", vehicle.dataset.vehicle === state.brand);
+    });
+
+    if (elements.calculator) {
+      elements.calculator.classList.remove("is-calculator-active");
+      void elements.calculator.offsetWidth;
+      elements.calculator.classList.add("is-calculator-active");
+      window.setTimeout(function () {
+        elements.calculator.classList.remove("is-calculator-active");
+      }, 820);
+    }
+
     updateRangeFill();
   }
 
@@ -1342,6 +1619,13 @@
         item.setAttribute("aria-pressed", String(item === button));
       });
 
+      elements.brandToggle.classList.remove("is-attention");
+      void elements.brandToggle.offsetWidth;
+      elements.brandToggle.classList.add("is-attention");
+      window.setTimeout(function () {
+        elements.brandToggle.classList.remove("is-attention");
+      }, 3200);
+
       updateCalculator();
     });
   });
@@ -1350,6 +1634,96 @@
     state.years = Number(yearsInput.value);
     updateCalculator();
   });
+
+
+  /* CALCULATOR SCROLL DEMO
+     When the calculator first enters view, the slider animates from year 1 to year 10.
+     The savings counter updates with it. User interaction always takes priority.
+  */
+  let calculatorDemoPlayed = false;
+  let userHasInteracted = false;
+
+  ["pointerdown", "keydown", "touchstart"].forEach(function (eventName) {
+    yearsInput.addEventListener(eventName, function () {
+      userHasInteracted = true;
+    }, { passive: true });
+  });
+
+  brandButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      userHasInteracted = true;
+    });
+  });
+
+  function runCalculatorDemo() {
+    if (calculatorDemoPlayed || userHasInteracted) return;
+    calculatorDemoPlayed = true;
+
+    const start = performance.now();
+    const duration = 1750;
+    const startingYear = 1;
+    yearsInput.classList.add("is-demoing");
+    elements.brandToggle.classList.add("is-attention");
+
+    function demoFrame(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const year = Math.max(1, Math.round(startingYear + (9 * eased)));
+
+      if (!userHasInteracted) {
+        state.years = year;
+        yearsInput.value = String(year);
+        updateCalculator();
+      }
+
+      if (progress < 1 && !userHasInteracted) {
+        requestAnimationFrame(demoFrame);
+      } else {
+        yearsInput.classList.remove("is-demoing");
+        window.setTimeout(function () {
+          elements.brandToggle.classList.remove("is-attention");
+        }, 2300);
+      }
+    }
+
+    requestAnimationFrame(demoFrame);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const calculatorObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          state.years = 1;
+          yearsInput.value = "1";
+          elements.savings.dataset.value = "0";
+          updateCalculator();
+          window.setTimeout(runCalculatorDemo, 420);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.46 });
+
+    calculatorObserver.observe(elements.calculator);
+  } else {
+    runCalculatorDemo();
+  }
+
+  /* TABLE TOTAL COUNTER ON FIRST VIEW */
+  if ("IntersectionObserver" in window) {
+    const totalObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          const target = programData[state.brand].tenYearTotal;
+          elements.tableTotal.dataset.value = "0";
+          animateNumber(elements.tableTotal, target, "", true);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.55 });
+
+    totalObserver.observe(page.querySelector(".pfl-table-card"));
+  }
+
 
   /* ACCORDIONS */
   page.querySelectorAll(".pfl-accordion-button").forEach(function (button) {
@@ -1396,13 +1770,29 @@
 
     if (!reduceMotion) {
       if (heroMedia) {
-        heroMedia.style.setProperty("--pfl-parallax", Math.min(scrollTop * 0.13, 90) + "px");
+        heroMedia.style.setProperty("--pfl-parallax", Math.min(scrollTop * 0.18, 125) + "px");
+      }
+
+      elements.heroVehicles.forEach(function (vehicle, index) {
+        const direction = index === 0 ? 1 : -1;
+        vehicle.style.setProperty("--pfl-vehicle-x", (scrollTop * 0.035 * direction) + "px");
+        vehicle.style.setProperty("--pfl-vehicle-y", Math.min(scrollTop * -0.055, -70) + "px");
+      });
+
+      if (elements.introVehicle) {
+        const introRect = elements.introVehicle.parentElement.getBoundingClientRect();
+        elements.introVehicle.style.setProperty("--pfl-intro-vehicle-y", ((window.innerHeight - introRect.top) * -0.06) + "px");
       }
 
       if (statementMedia) {
         const rect = statementMedia.parentElement.getBoundingClientRect();
-        const offset = (window.innerHeight - rect.top) * 0.07;
-        statementMedia.style.setProperty("--pfl-statement-parallax", Math.max(-60, Math.min(70, offset)) + "px");
+        const offset = (window.innerHeight - rect.top) * 0.11;
+        statementMedia.style.setProperty("--pfl-statement-parallax", Math.max(-90, Math.min(105, offset)) + "px");
+
+        if (elements.statementVehicle) {
+          elements.statementVehicle.style.setProperty("--pfl-statement-vehicle-x", Math.max(-50, Math.min(70, offset * .45)) + "px");
+          elements.statementVehicle.style.setProperty("--pfl-statement-vehicle-y", Math.max(-35, Math.min(55, offset * -.22)) + "px");
+        }
       }
     }
 
@@ -1419,7 +1809,7 @@
   window.addEventListener("resize", updateScrollEffects);
 
   /* INITIALIZE */
-  elements.savings.dataset.value = "13140";
+  elements.savings.dataset.value = "0";
   updateCalculator();
   updateScrollEffects();
 

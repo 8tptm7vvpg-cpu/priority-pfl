@@ -16,3 +16,12 @@ NOTES
 - No external libraries or fonts are required.
 - Lexus and Mitsubishi values can be toggled.
 - Savings are proportionally estimated from the published 10-year values.
+
+UPDATED MOTION VERSION
+- White-text logos are used over dark sections.
+- Lexus and Mitsubishi vehicles switch with the calculator brand toggle.
+- The ownership slider demonstrates itself from 1 to 10 years when first scrolled into view.
+- Savings totals count upward.
+- Directional fly-in and bounce reveals were added.
+- Brand buttons pulse and receive an attention halo.
+- Hero, vehicle, intro, and statement layers use stronger lightweight parallax.
